@@ -15,6 +15,9 @@ export default createGlobalStyle`
   li {
     list-style:none;
   }
+  ul {
+    padding:0;
+  }
   body {
     margin: 0;
     font-family: system-ui;
