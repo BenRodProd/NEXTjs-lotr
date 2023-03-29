@@ -4,15 +4,20 @@ import { useRouter } from "next/router";
 import Image from "next/image";
 import NextBook from "../../components/nextBook";
 import PrevBook from "../../components/prevBook";
-
+import Head from "next/head";
 export default function Volume1() {
   const router = useRouter();
   const extSlug = router.query;
 
   const volumeData = volumes.find(({ slug }) => slug === extSlug.slug);
-
+  if (!volumeData) {
+    return null;
+  }
   return (
     <>
+      <Head>
+        <title>{volumeData.title}</title>
+      </Head>
       <h1>{volumeData.title}</h1>
       <p>{volumeData.description}</p>
       <ul>
